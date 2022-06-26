@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Container } from "@mui/system";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom"
+import CreateExam from "./pages/CreateExam";
+import Finish from "./pages/Finish";
+import GiveExam from "./pages/GiveExam"
+import ManagerMenu from "./pages/ManagerMenu";
+import QuesAnsFeed from "./pages/QuesAnsFeed";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+        <Box mt="5">
+          <Routes>
+            <Route path="/exam" element={<GiveExam />}/>
+            <Route path="/create_exam" element={<CreateExam/>}/>
+            <Route path="/qaf" element={<QuesAnsFeed/>}/>
+            <Route path="/finish" element={<Finish />}/>
+            <Route path="/manager" element={<ManagerMenu />} />
+          </Routes>
+        </Box>
+      </Container>
+    </Router>
   );
 }
 
