@@ -4,9 +4,9 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import CreateExam from "./pages/CreateExam";
+import CreateTest from "./pages/CreateTest";
 import Finish from "./pages/Finish";
-import GiveExam from "./pages/GiveExam"
+import GiveTest from "./pages/GiveTest"
 import ManagerMenu from "./pages/ManagerMenu";
 import QuesAnsFeed from "./pages/QuesAnsFeed";
 
@@ -16,8 +16,8 @@ function App() {
       <Container>
         <Box mt="5">
           <Routes>
-            <Route path="/exam" element={<GiveExam />}/>
-            <Route path="/create_exam" element={<CreateExam/>}/>
+            <Route path="/give-test" element={<GiveTest />}/>
+            <Route path="/create-test" element={<CreateTest/>}/>
             <Route path="/qaf" element={<QuesAnsFeed/>}/>
             <Route path="/finish" element={<Finish />}/>
             <Route path="/manager" element={<ManagerMenu />} />

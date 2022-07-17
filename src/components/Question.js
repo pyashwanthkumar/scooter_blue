@@ -18,11 +18,16 @@ const Question = (props) => {
     console.log(questionIndex)
     return (
         <Box mt={10}>
-            <Typography variant='h6'>Question {questionIndex + 1}  {values[questionIndex].question}</Typography>
-            <TextField fullWidth></TextField>
-            <Button onClick={handleNextQuestion}>
+            <Typography variant='h6'>Question {questionIndex + 1}:</Typography>
+            <Typography mt={2} variant='h6'>  {values[questionIndex].question}</Typography>
+            <Box mt={2}>
+                <TextField size="medium" fullWidth></TextField>
+            </Box>
+            <Box mt={3}>
+            <Button variant="outlined" onClick={handleNextQuestion}>
                 Next
             </Button>
+            </Box>
         </Box>
     )
 }

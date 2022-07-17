@@ -1,11 +1,39 @@
 import { FormControl, TextField } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import { useDispatch } from 'react-redux'
+import React, {useState} from 'react'
+import {handleTestnameChange, handleYearChange,handleSemesterChange, handleTimeChange, handleNumOfQuestionsChange, handlePointsChange} from "../redux/CreateTestRed"
 
 const TextFieldComp = (props) => {
-  const {label, type, required} = props
-  const handleChange = () => {
 
+  const {label, id, type, required} = props
+  const dispatch = useDispatch()
+  const [value, setValue] = useState("")
+
+  const handleChange = (e) => {
+    setValue(e.target.value)
+    switch(id){
+        case "name":
+            dispatch(handleTestnameChange(e.target.value))
+            break
+        case "year":
+            dispatch(handleYearChange(Number(e.target.value)))
+            break
+        case "semester":
+            dispatch(handleSemesterChange(e.target.value))
+            break
+        case "time":
+            dispatch(handleTimeChange(e.target.value))
+            break
+        case "num_of_questions":
+            dispatch(handleNumOfQuestionsChange(Number(e.target.value)))
+            break
+        case "points":
+            dispatch(handlePointsChange(Number(e.target.value)))
+            break
+        default:
+            return
+    }
   }
 
   return (
