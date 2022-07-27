@@ -1,30 +1,30 @@
-import { Box, Container } from "@mui/system";
+import { createTheme, ThemeProvider, Box, Container } from "@mui/material";
 import {
   BrowserRouter as Router,
-  Routes,
+  
   Route
 } from "react-router-dom"
-import CreateTest from "./pages/CreateTest";
-import Finish from "./pages/Finish";
-import GiveTest from "./pages/GiveTest"
-import ManagerMenu from "./pages/ManagerMenu";
-import QuesAnsFeed from "./pages/QuesAnsFeed";
+import { Routes } from "./routes/routes";
+import "./index.css"
+
+
+const darkTheme = createTheme({
+    palette: {
+        mode: "dark"
+    }
+})
 
 function App() {
   return (
-    <Router>
-      <Container>
-        <Box mt="5">
-          <Routes>
-            <Route path="/give-test" element={<GiveTest />}/>
-            <Route path="/create-test" element={<CreateTest/>}/>
-            <Route path="/qaf" element={<QuesAnsFeed/>}/>
-            <Route path="/finish" element={<Finish />}/>
-            <Route path="/manager" element={<ManagerMenu />} />
-          </Routes>
-        </Box>
-      </Container>
-    </Router>
+    // <ThemeProvider theme={darkTheme}>
+      <Router>
+        <Container>
+          <Box mt="5">
+            <Routes/>
+          </Box>
+        </Container>
+      </Router>
+    // </ThemeProvider>
   );
 }
 

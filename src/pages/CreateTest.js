@@ -3,11 +3,12 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import TextFieldComp from '../components/TextFieldComp'
-import axios from 'axios'
-import { handleIdChange } from '../redux/CreateTestRed'
+import { handleIdChange } from '../slices/create_test.slice'
+import { useCreateTestSettingMutation } from '../apis/createTestSetting.api'
 
 const CreateTest = () => {
     const navigate = useNavigate()
+    const [createTestSetting] = useCreateTestSettingMutation()
     
     const {
         name,
@@ -20,26 +21,17 @@ const CreateTest = () => {
 
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios
-            .post('http://0.0.0.0:3002/create-test',{
-                name,
-                year,
-                semester,
-                time,
-                num_of_questions,
-                points
-            })
-            .then((response) => {
-                dispatch(handleIdChange(response.data._id))
-                console.log("response" + response.data._id)
-            })
-            .catch((error) => {
-                console.log("error" + error)
-            })
-
-        setTimeout(() => {  console.log("World!"); }, 10000);    
+        const response = await createTestSetting({
+            name,
+            year,
+            semester,
+            time,
+            num_of_questions,
+            points 
+        })  
+        dispatch(handleIdChange(response.data._id))
         navigate("/qaf")
     }
 

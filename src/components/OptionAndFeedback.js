@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Box } from '@mui/system'
-import { FormControl, TextField } from '@mui/material'
+import { Box, FormControl, TextField } from '@mui/material'
 
-const OptionAndFeedback = (props) => {
-    const {label} = props 
+const OptionAndFeedback = React.forwardRef((props, ref) => {
+    const {label, questionIndex} = props 
     const [choice, setChoice] = useState("")
     const [feedback, setFeedback] = useState("")
 
@@ -14,6 +13,20 @@ const OptionAndFeedback = (props) => {
     useEffect(() =>{
         props.updateOptions(label, choice, feedback)
     }, [choice, feedback])
+
+    React.useImperativeHandle(ref, () => ({
+        deleteState
+      }));
+
+    const deleteState = () => {
+        setFeedback("")
+        setChoice("")
+    }
+
+    const handleSubmit = () => {
+        optAndFeedRef.current.choice = ""
+        optAndFeedRef.current.feedback = ""
+    } 
 
     const handleChange = async (e) => {
       const arr = e.target.id.split("_")
@@ -53,5 +66,5 @@ const OptionAndFeedback = (props) => {
         </Box>
       )
 }
-
+)
 export default OptionAndFeedback

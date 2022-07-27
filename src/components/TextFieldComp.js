@@ -1,8 +1,7 @@
-import { FormControl, TextField } from '@mui/material'
-import { Box } from '@mui/system'
+import { Box, FormControl, TextField } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import React, {useState} from 'react'
-import {handleTestnameChange, handleYearChange,handleSemesterChange, handleTimeChange, handleNumOfQuestionsChange, handlePointsChange} from "../redux/CreateTestRed"
+import {handleTestnameChange, handleYearChange,handleSemesterChange, handleTimeChange, handleNumOfQuestionsChange, handlePointsChange} from "../slices/create_test.slice"
 
 const TextFieldComp = (props) => {
 

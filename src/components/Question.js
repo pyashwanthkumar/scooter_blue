@@ -1,5 +1,4 @@
-import { Button, FormControl, TextField, Typography } from '@mui/material'
-import { Box } from '@mui/system'
+import { Box, Button, FormControl, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,11 +14,11 @@ const Question = (props) => {
             navigate("/finish")
         }
     }
-    console.log(questionIndex)
+    
     return (
         <Box mt={10}>
             <Typography variant='h6'>Question {questionIndex + 1}:</Typography>
-            <Typography mt={2} variant='h6'>  {values[questionIndex].question}</Typography>
+            <Typography mt={2} variant='h6'>  {values.question}</Typography>
             <Box mt={2}>
                 <TextField size="medium" fullWidth></TextField>
             </Box>
