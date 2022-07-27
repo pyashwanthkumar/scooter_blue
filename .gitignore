@@ -8,6 +8,12 @@
 # testing
 /coverage
 
+#yarn files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
+
 # production
 /build
 
