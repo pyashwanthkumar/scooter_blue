@@ -8,6 +8,9 @@ import { createTestSettingApi } from "../apis/createTestSetting.api";
 import { addQuestionApi } from "../apis/addQuestion.api";
 import { getTestApi } from "../apis/getTest.api";
 import { giveTestApi } from "../apis/giveTest.api";
+import { getTestReportApi } from "../apis/getTestReport.api";
+import { askQuestionApi } from "../apis/askQuestion.api";
+import { getQuestionListApi } from "../apis/getQuestionList.api";
 
 
 export const store = configureStore({
@@ -18,6 +21,9 @@ export const store = configureStore({
         [addQuestionApi.reducerPath]: addQuestionApi.reducer,
         [getTestApi.reducerPath]: getTestApi.reducer,
         [giveTestApi.reducerPath]: giveTestApi.reducer,
+        [getTestReportApi.reducerPath]: getTestReportApi.reducer,
+        [askQuestionApi.reducerPath]: askQuestionApi.reducer,
+        [getQuestionListApi.reducerPath]: getQuestionListApi.reducer,
         create_test,
         add_question,
         auth,
@@ -30,4 +36,7 @@ export const store = configureStore({
             .concat(addQuestionApi.middleware)
             .concat(getTestApi.middleware)
             .concat(giveTestApi.middleware)
+            .concat(getTestReportApi.middleware)
+            .concat(askQuestionApi.middleware)
+            .concat(getQuestionListApi.middleware)
 })
