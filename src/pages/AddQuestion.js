@@ -55,6 +55,7 @@ const AddQuestion = () => {
 
     return (
         <Box 
+            mt={3}
             component="form"
             onSubmit={handleSubmit}
         >
